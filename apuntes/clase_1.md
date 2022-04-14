@@ -20,7 +20,9 @@ cliente (el enunciado).
 <br/>
 Objeto
 : Una entidad que existe en tiempo de ejecución y que puede enviar y recibir
-mensajes.
+mensajes. Va a actuar, va a tener comportamiento. No es simplemente una
+colección de datos (struct), sino que va a actuar. Cada objeto tiene su propia
+identidad que lo distingue de otros objetos incluso del mismo tipo.
 <br/>
 Comportamiento
 :	La forma en la que un objeto responde a determinado mensaje. Las posibles
@@ -29,9 +31,39 @@ respuestas a los mensajes recibidos por un objeto.
 Delegación
 : Cuando un objeto, para responder un mensajes a otros objetos, decimos que
 delega ese comportamiento en otros objetos.
+<br/>
+Método
+: La forma en la que se implementan los mensajes.
+
+## Objetos, Estado y Comportamiento
+
+Los objetos tienen estado, que puedo cambiar a traves del tiempo. El estado del
+objeto es basicamente los datos que este almacena y sobre los que el objeto va
+a actuar. Los objetos tienen comportamiento, que es el conjunto de posibles
+respuestas de un objeto ante los mensajes que recibe.
+
+### Encapsulamiento
+
+El estado de los objetos suele ser privado. Es decir que el objeto va a
+esconder su estado y si fuese necesario accederemos a él mediante mensajes.
+Aca es cuando introducimos el concepto de *"encapsulamiento"*, que define a
+cada objeto como el responsable de responder a los mensajes que recibe, sin
+que quien le envía el mensaje tenga que saber cómo lo hace.
+
+Los objetos deben manejar su propio comportamiento, sin que manipulemos su
+estado desde afuera ("Tell don't ask").
+
+## Resumen
+
+* Un objeto tiene estado propio y un determinado comportamiento.
+* El comportamiento de un objeto es el conjunto de posibles resuestas que
+el objeto puede dar antes los diferentes mensajes recibidos.
+* El encapsulamiento consiste en mantener las implementaciones de la
+funcionalidad del objeto privado solo para el objeto. Es decir, cuando
+interactuamos con un objeto, no nos debe importar que informacion tiene o cómo
+la maneja, solo cuáles mansajes le podemos enviar.
 
 ## Referencias
 
 * [Clase teórica #1 - Parte #1](https://www.youtube.com/watch?v=p4M__44V4bM)
 * [Clase teórica #1 - Parte #2](https://www.youtube.com/watch?v=_QvkL1_MOVk&feature=emb_imp_woyt)
-
