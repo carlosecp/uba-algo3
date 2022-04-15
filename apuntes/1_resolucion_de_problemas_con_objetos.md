@@ -62,8 +62,3 @@ el objeto puede dar antes los diferentes mensajes recibidos.
 funcionalidad del objeto privado solo para el objeto. Es decir, cuando
 interactuamos con un objeto, no nos debe importar que informacion tiene o cómo
 la maneja, solo cuáles mansajes le podemos enviar.
-
-## Referencias
-
-* [Clase teórica #1 - Parte #1](https://www.youtube.com/watch?v=p4M__44V4bM)
-* [Clase teórica #1 - Parte #2](https://www.youtube.com/watch?v=_QvkL1_MOVk&feature=emb_imp_woyt)
