@@ -9,7 +9,7 @@ la misma manera.
 
 ## Detalles de Smalltalk
 
-Se aclaran algunos detalles como qué es garbage collection y como funciona el
+Se aclaran algunos detalles como qué es garbage-collection y como funciona el
 sistema de tipado no estatico de Smalltalk, que detecta problemas en el tiempo
 de ejecución.
 
@@ -20,11 +20,11 @@ de métodos en estos casos, que determinan como se interactua con estos métodos
 es decir cuántos y cuáles parámetros se reciben (el significado de cada
 parámetro).
 
-Tambien tenemos precondiciones, que son condiciones (claramente) que indican
+También tenemos precondiciones, que son condiciones (claramente) que indican
 cómo debe estar el medio antes de que un objeto reciba un mensaje. Si una
 precondición no se cumple entonces ahí es que se lanza un excepción. Las
 postcondiciones representan el estado en el que debe quedar el medio luego de
-la finalización del método. Su las postcondiciones no se cumplen, entonces ahi
+la finalización del método. Su las postcondiciones no se cumplen, entonces ahí
 si tenemos un problema nuestro como programadores, y tenemos que revisar el
 método en cuestión. Para esto es que nos sirven las pruebas unitarias.
 
@@ -34,11 +34,11 @@ las postcondiciones.
 
 ## Pruebas Unitarias
 
-Una prueba unitaria es un prueba que comprueba la corección de una única
+Una prueba unitaria es un prueba que comprueba la corrección de una única
 responsabilidad de un método. Deberíamos tener al menos una prueba unitaria por
 cada postcondición.
 
-Asi el flujo de trabajo óptimo para implementar nueva funcionalidad en nuestros
+Así el flujo de trabajo óptimo para implementar nueva funcionalidad en nuestros
 objetos debería asimilarse al siguiente:
 
 1. Determinar firmas de métodos.
@@ -56,14 +56,14 @@ para esa postcondición, vamos a la siguiente, y repetimos.
 
 ### Filosofía
 
-La idea es separar una funcionalidad en dos partes, la
-parte en la que pensamos en qué debe hacer mi objeto (que responsabilidades
-tiene) y luego la parte de programar como tal la funcionalidad, una vez ya
-tenemos claro que es lo que hace nuestro método u objeto.
+La idea es separar una funcionalidad en dos partes, la parte en la que pensamos
+en qué debe hacer mi objeto (que responsabilidades tiene) y luego la parte de
+programar como tal la funcionalidad, una vez ya tenemos claro que es lo que
+hace nuestro método u objeto.
 
 Otra ventaja es que las pruebas unitarias se convierten en especificaciones de
 lo que se espera como respuesta del objeto ante el envío de un mensaje. Es
-decir, un nuevo desarrallor en un proyecto puede introducirse y formarse una
+decir, un nuevo desarrollador en un proyecto puede introducirse y formarse una
 idea del proyecto en base a las pruebas. Funcionan a manera de documentación.
 
 Esto lleva a que si vamos a escribir pruebas, deberíamos tener una prueba ANTES
@@ -79,7 +79,7 @@ automatizar, se van a correr siempre y siempre igual.
 Si nuestro objetivo es escribir pruebas y hacerlas pasar, puede ser que algo
 de nuestro código haya quedado desprolijo cuando implementamos algo para pasar
 una pruebas con la intensión de pasara la prueba y ya. Acá es cuando podemos
-volver atrás y retocar un poco el código manteniendo su funcionaiento
+volver atrás y retocar un poco el código manteniendo su funcionamiento
 (volvemos a este tema en algunas clases).
 
 ## Inicializadores
@@ -92,8 +92,8 @@ todas las precondiciones.
 
 Hay una pequeña distinción entre estos dos conceptos. Atributos son los piezas
 de información que contiene un objeto, mientras que las propiedades son las
-propiedades son las que muestra. Por ejemplo, podriamos tener un vector que
-solo guarde información de su coordenada x e y, esas serían los atributos,
+propiedades son las que muestra. Por ejemplo, podríamos tener un vector que
+solo guarde información de su coordenada `x` e `y`, esas serían los atributos,
 pero una propiedad podría ser el módulo de ese vector, que se calcula cuando
 se solicita a partir de los atributos guardados.
 
