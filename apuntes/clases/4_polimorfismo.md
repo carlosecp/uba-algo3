@@ -1,8 +1,10 @@
 [comment]: # (vim: setlocal spell spelllang=es)
 # Polimorfismo
 
-Es una propiedad por la que es posible enviar mensajes sintácticamente iguales
-a objetos de tipo distinto, estando en el mismo contexto. 
+Es la capacidad que tienen distintos objetos de responder de maneras diferentes
+a un mismo mensaje. Es una propiedad por la que es posible enviar mensajes
+sintácticamente iguales a objetos de tipo distinto, estando en el mismo
+contexto. 
 
 Por ejemplo:
 
@@ -30,6 +32,12 @@ mismo propósito aunque las implementaciones sean diferentes. Vemos como esto
 nos ayuda con el encapsulamiento también porque nos permite solo enforcarnos
 en el contrato.
 
-Polimorfismo es básicamente definir una interfaz común para varios objetos.
+Polimorfismo es básicamente definir una interfaz común para varios objetos. Con
+esto también vemos que esta sumamento relacionado con la herencia.
 
-## Polimorfismo en vez de Condicionales
+## Patrones de Diseño
+
+Existen varias formas de aplicar prácticas comúnes de polimorfismo, por lo que
+las más populares se agrupan en "Patrones de diseño".
+
+## Linking (Vinculación)
