@@ -1,3 +1,4 @@
+[comment]: # (vim: setlocal spell spelllang=es)
 # Resolución de problemas con objetos
 
 La forma que propone la programacion orientada a objetos para resolver

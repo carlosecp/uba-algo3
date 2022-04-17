@@ -1,3 +1,4 @@
+[comment]: # (vim: setlocal spell spelllang=es)
 # Diseño por contrato y test first
 
 ## Definiciones

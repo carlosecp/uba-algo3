@@ -1,3 +1,4 @@
+[comment]: # (vim: setlocal spell spelllang=es)
 # Colaboraciones de Objetos
 
 ## Definiciones
@@ -19,7 +20,7 @@ al cliente no le importa cómo implemente el servidor.
 Hay tres formas en las que el cliente puede conocer al receptor del cuál va a
 consumir un servicio:
 
-* El ojbeto receptor se envía como argumento.
+* El objeto receptor se envía como argumento.
 * El objeto receptor se obtiene como respuesta al envío de un mensaje a otro
 objeto.
 * El objeto cliente contiene una referencia al receptor. Esto es conocido como
@@ -32,9 +33,12 @@ e implementamos un objeto base/madre que contenga la funcionalidad común, así
 solo implementamos esta funcionalidad una sola vez. Después simplemente
 implementamos las diferencias de las variantes específicas de esta clase.
 
+Las subclases pueden redefinir el comportamiento implementado por la clase de
+la que heredan.
+
 ### Clases Abstractas
 
-Son clases que no pueden tener instancias de esta clase. Basicamente son clases
+Son clases que no pueden tener instancias de esta clase. Básicamente son clases
 que usamos para agrupar funcionalidad, que luego va a ser tomada como base de
 clases concretas, estas últimas si pueden ser instanciadas.
 
@@ -44,3 +48,14 @@ definir un método que obligatoriamente debamos especificar para cada una de
 las subclases que hereden de esta clase abstracta. Estos métodos son conocidos
 como "métodos abstractos". Las subclases tienen, si o si, que implementar este
 método.
+
+## Visibilidad
+
+Es un concepto que garantiza el encapsulamiento.
+
+* Atributos y métodos privados: Son visibles únicamente en el contexto de la
+clase receptora.
+* Atributos y métodos públicos: Se los puede utilizar desde cualquier lado. Son
+los que definen el comportamiento de un objeto.
+* Atributos y métodos protegidos: Son visibles únicamente en el contexto de la
+clase receptora y todas las clases que hereden de la misma.
