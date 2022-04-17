@@ -14,26 +14,17 @@ entidad con las demás? y ¿cómo es esa relación, que esperan sacar de ahí?
 
 ## Definiciones
 
-Dominio del problema
-:	Conjunto de conceptos que es necesario conocer para entender el problema del
-cliente (el enunciado).
-<br/>
-Objeto
-: Una entidad que existe en tiempo de ejecución y que puede enviar y recibir
-mensajes. Va a actuar, va a tener comportamiento. No es simplemente una
+* Dominio del problema: Conjunto de conceptos que es necesario conocer para
+entender el problema del cliente (el enunciado).
+* Objeto: Una entidad que existe en tiempo de ejecución y que puede enviar y
+recibir mensajes. Va a actuar, va a tener comportamiento. No es simplemente una
 colección de datos (struct), sino que va a actuar. Cada objeto tiene su propia
 identidad que lo distingue de otros objetos incluso del mismo tipo.
-<br/>
-Comportamiento
-:	La forma en la que un objeto responde a determinado mensaje. Las posibles
-respuestas a los mensajes recibidos por un objeto.
-<br/>
-Delegación
-: Cuando un objeto, para responder un mensajes a otros objetos, decimos que
-delega ese comportamiento en otros objetos.
-<br/>
-Método
-: La forma en la que se implementan los mensajes.
+* Comportamiento: La forma en la que un objeto responde a determinado mensaje.
+Las posibles respuestas a los mensajes recibidos por un objeto.
+* Delegación: Cuando un objeto, para responder un mensajes a otros objetos,
+decimos que delega ese comportamiento en otros objetos.
+* Método: La forma en la que se implementan los mensajes.
 
 ## Objetos, Estado y Comportamiento
 

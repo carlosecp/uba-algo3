@@ -2,10 +2,9 @@
 
 ## Definiciones
 
-Clase
-: Conjunto de objetos que, por lo menos, tienen el mismo comportamiento. Todos
-los objetos de una clase entienden los mismos mensajes y responden a estos de
-la misma manera.
+* Clase: Conjunto de objetos que, por lo menos, tienen el mismo comportamiento.
+Todos los objetos de una clase entienden los mismos mensajes y responden a
+estos de la misma manera.
 
 ## Detalles de Smalltalk
 
