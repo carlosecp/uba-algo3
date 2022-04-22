@@ -100,4 +100,16 @@ PROCEDIMIENTO:
 8. Pasar a la siguiente postcondicion.
 
 VENTAJAS:
-• 
+• Las pruebas se convierten en especificaciones de como funciona el objeto. 
+• Permite especificar el comportamiento sin restringirse a una implementacion.
+• Permite independizarse del factor humano. Facilita la repeticion de las
+	pruebas.
+
+Existe un concepto que es la construccion en base a componentes, donde los
+componentes son los objetos. Hay dos condiciones:
+
+• Los objetos deben estar encapsulados. Tiene un comportamiento definido y no
+	nos deberia importar como esta implementado dicho comportamiento.
+• Cada componente debe tener un contrato.
+
+==> CLASE 3 <==
