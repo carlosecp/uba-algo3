@@ -1,0 +1,65 @@
+COLABORACIONES DE OBJETOS
+
+Los objetos trabajan con un modelo receptor-cliente. Donde el objeto receptor
+es quien recibe el mensaje, tambien conocido como servidor. El cliente es aquel
+que envia el mensaje y consume un servicio.
+
+FORMAS DE COLABORACION ENTRE OBJETOS:
+• Delegacion: Un objeto le va diciendo a otros que resuelva subproblemas.
+• Herencia: Indicamos que una parte de la implementacion de un objeto esta
+  definida en otro objeto, y por lo tanto, solo nos enfocamos en implementar
+  las diferencias especificas.
+
+---
+
+DELEGACION
+Como en este modelo el objeto cliente necesita de la respeusta del receptor
+para su correcto funcionamiento, se establece una relacion de dependencia entre
+ambos.
+
+Hay tres tipos de delegacion (en base a tres diferentes tipos de relaciones de
+dependencia):
+
+• El receptor se envia como argumento.
+• El receptor se obtiene como respuesta a un mensaje de otro objeto.
+• El objeto cliente tiene una referencia al receptor en su estado. Esto ultimo
+  se conoce como "asociacion". Si la asociacion se establece al momento de
+  inicializar el objeto cliente, se le conoce como "composicion".
+
+---
+
+** HERENCIA: **
+Es la forma orientada a objetos de programar por diferencia. En donde se
+establece una relacion entre diferentes clases. Se establece una relacion de
+generalizacion, en la que hay tipos mas genericos y tipos mas especificos.
+
+DEFINICIONES:
+• Redefinicion: Cuando al heredar necesito reimplementar parte de la interfaz
+  de la clase madre de forma diferente (no cambiar la interfaz, cambiar la
+  implementacion).
+• Clase abstracta: Clase que no puede ser instanciada. Solo nos sirven para
+  agrupar comportamiento que luego va a ser heredado por otras clases.
+• Metodo abstracto: Es un metodo sin implementacion por defecto en un clase
+  abstracta. Fuerza su implementacion en cada una de las clases herederas.
+
+---
+
+Conviene utilizar delegacion para algunas situaciones y herencia para otras:
+
+• Herencia: relacion "es un".
+• Dependencia: relacion "contiene", "hace referencia".
+
+No siempre conviene usar herencia, de hecho, incluso la catedra no la
+recomienda. Usamos herencia si queremos utilizar TODO el contrato de la clase
+madre. Con herencia tenemos que mantener toda la interfaz si o si. De lo
+contrario estamos mejor usando delegacion.
+
+---
+
+VISIBILIDAD:
+Es un concepto para garantizar el encapsulamiento de las clases. Para esto
+existen diferentes modos/niveles de visibilidad:
+
+• Privados: Solo los puede usar el objeto receptor en su clase.
+• Publicos: Se los puede usar desde cualquier lado.
+• Protegidos: Solo los pueden usar el mismo objeto y las clases herederas.

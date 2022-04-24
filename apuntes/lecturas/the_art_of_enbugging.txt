@@ -1,0 +1,67 @@
+THE ART OF ENBUGGING
+source: https://media.pragprog.com/articles/jan_03_enbug.pdf
+
+Muchos recursos que explican el concepto de debugging suelen referirse a los
+errores como "bugs", sin embargo la mayoria del tiempo este enfoque suele
+presentar dicho bugs como algo que aparece de manera espontanea en el codigo.
+
+Claramente no es asi. Nosotros mismos somos quienes introducimos estos bugs en
+el codigo. Hay veces en las que tenemos un mal dia programando, y terminamos
+haciendo llenando nuestro codigo de bugs por no estar con la mente clara,
+terminamos haciendo "enbugging".
+
+Una de las formas en las que podemos minimzar el riesgo de terminar esparciendo
+bugs por todos lados, es tener bien aislados y encapsuladas las diferentes
+clases y modulos por sus responsabilidades, sin embargo esto es algo que
+requiere de mucha experiencia para hacerse bien. Para quienes no tenemos tanta
+experiencia, puede que el concepto de "shy code" nos sea de ayuda.
+
+• Shy Code:
+Consiste en escribir codigo que no revela mucho de si mismo a los demas.
+No habla con los demas de no ser necesario (como yo). "Shy code should never
+show its 'privates' to 'friends'".
+
+• Tell, don't ask:
+Una caracteristica de la programacion orientada a objetos es la idea del pasaje
+de mensajes entre objetos. Esto es mas evidente en lenguajes como Smalltalk o
+Ruby, en donde los objetos reciben "mensajes" como tal, contrario a lo que
+se hace en lenguajes como Java o Python, en donde se utiliza la invocacion de
+metodos como invocacion a funciones, de una forma bastante imperativa. El
+codigo imperativo tienda a obtener informacion externa (como argumentos) y
+luego tomar decisiones en base a esa informacion; el codigo orientado a objetos
+le dice a los objetos que cosas tienen que hacer.
+
+En la programacion orientada objetos no queremos preguntar a un objeto por su
+estado de manera explicita, para luego con ese estado tomar una decision de que
+hacer. En cuanto nos topemos con esta situacion, pensemos que probablemente lo
+que estamos a punto de hacer con el estado que conseguimos deberia ser
+responsabilidad del objeto receptor del mensaje, es decir, que estariamos
+violando el encapsulamiento, y (en base a lo que se decia en la introduccion),
+favoreciendo el esparcimiento de los bugs.
+
+Adaptarse a esta mentalidad del "Tell, don't ask" es mas sencillo si pensamos
+en los metodos mas como "comandos" o "queries", donde un comando es capaz de
+modificar el estado de un objeto, mientras que una query solamente nos brinda
+informacion del mismo (pero del estado visible nada mas), haciendolos libres
+de side effects.
+
+Como los metodos query estan libres de site effects, esto significa que los
+podemos utilizar correctamente en pruebas unitarias.
+
+• The Pretty Good Idead of Demeter:
+Si aumentan las cantidad the objetos con los que interactuamos, aumentamos
+el risego de introducir bugs. No solo deberiamos querer decir lo menos
+posible a otros objetos, sino que tambien deberias querer hablar con cuantos
+menos objetos sea posible.
+
+Para ordenar un poco esta idea, surge la ley de "Demeter of Functions", que
+sugiere que un objeto solamente debe llamar:
+
+- A si mismo.
+- Informacion pasada por parametro para algun metodo.
+- Objetos creados por este objeto.
+- Objetos de los que depende por delegacion, pero unicamente por asociacion,
+  no por retornos de otros objetos.
+
+La desventaja de este enfoque es que terminamos escribiendo varios wrappers
+pequeños para otros wrappers pequeños.

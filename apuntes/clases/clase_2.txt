@@ -1,0 +1,61 @@
+DISEÑO POR CONTRATO
+
+• Las firmas de los metodos determinan como hacer para pedirles servicios a los
+	objetos.
+• Las precondiciones expresan el estado en el que debe estar el medio antes de
+	que un objeto reciba un mensaje. Si una precondicion no se cumple, entonces
+	se lanza una excepcion. Deberia definirse una excepcion por precondicion.
+• Las postcondiciones es el estado en el que debe estar el medio del sistema
+	cuando termina la ejecucion de un metodo. Si una postcondicion no se cumple,
+	el programador es responsable, por esto debemos checkear el cumplimiento de
+	postcondiciones. Para esto estan las pruebas unitarias.
+• Prueba Unitaria: Es una prueba que se dedica a comprobar la correcion de una
+	unica responsabilidad del un metodo.
+
+---
+
+PRUEBAS UNITARIAS:
+1. Definir el contrato de un unico metodo.
+2. Determinar las precondiciones y definir excepciones. 
+3. Determinar una de las postcondiciones.
+4. Escribir el codigo solamente para la postcondicion en cuestion.
+5. Ejecutar las pruebas unitarias solo para esta postcondicion.
+6. Corregir el metodo.
+7. Repetir desde el paso 5 hasta que pasan todas las pruebas.
+8. Pasar a la siguiente postcondicion.
+
+VENTAJAS:
+• Las pruebas se convierten en especificaciones de como funciona el objeto. 
+• Permite especificar el comportamiento sin restringirse a una implementacion.
+• Permite independizarse del factor humano. Facilita la repeticion de las
+	pruebas.
+
+---
+
+** ABSTRACCION: **
+Existe un concepto que es la construccion en base a componentes, donde los
+componentes son los objetos. Hay dos condiciones:
+
+• Los objetos deben estar encapsulados.
+• Cada componente debe tener un contrato.
+
+Jutando estos dos conceptos tenemos lo que llamamos "abstraccion".
+Basicamente: Encapsulamiento + Contratos = Abstraccion
+
+Recordamos en las notas de la clase anterior cuando mencionaba que el
+encapsulamiento se limita unicamente a restringir el acceso a la informacion
+o funcionalidad de un objeto bajo un unico componente. Por otra parte el
+contrato nos provee una interfaz para que otros objetos actuen con nuestro
+componentes unicamente a traves de la funcionalidad que exponemos.
+
+• Encapsulamiento: Ocultamiento de la informacion a nivel interno del
+  componente.
+• Abstraccion: Ocultamiento de la implementacion hacia otros objetos que usen
+  nuestro componente, de la mano de un contrato.
+
+Todavia mas simple:
+• Encapsulamiento: "Information hiding".
+• Abstraccion: "Implementation hiding".
+
+Bibliografia:
+- https://stackoverflow.com/questions/742341/difference-between-abstraction-and-encapsulation

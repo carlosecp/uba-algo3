@@ -1,0 +1,30 @@
+** POLIMORFISMO **
+
+Es una propiedad por la que es posible enviar mensajes sintacticamente iguales
+a objetos distintos (claramente estos objetos distintos deben poder responder
+al mensaje mandado).
+
+Consiste en definir una interfaz comun para varios objetos. Mantemos oculta la
+informacion de los objetos pero sabemos que todos implementan el comportamiento
+particular que nos importa. Tambien nos permite simpliicar el problema
+desmantelando las diferentes responsabilidad en diferentes objetos.
+
+La clave para trabajar con objetos polimorficos es pensar en que quien utiliza
+el comportamiento definido en la interfaz comun nunca tiene que saber que
+objeto esta en uso en un particular momento.
+
+En resumen la checklist de polimorfismo es:
+
+[ ] Objetos distintos que entienden el mismo mensaje.
+[ ] Los comportamientos se resuelven dentro de esos objetos.
+[ ] Quien invoc a los objetos polimorficos no tiene conocimiento de quienes
+    son.
+
+Polimorfismo implica que los comportamientos que finalmente se llevan a cabo se
+resuelven en tiempo de ejecucion.
+
+---
+
+
+
+---
