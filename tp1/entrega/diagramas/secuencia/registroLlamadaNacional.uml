@@ -1,0 +1,51 @@
+@startuml
+
+title Registro Llamada Nacional
+
+actor Usuario
+participant ":TeleAlgo" as teleAlgo
+participant LlamadaNacional
+participant Tarifa
+participant Llamada
+
+Usuario -> teleAlgo : registrarLlamadaNacional(duracion, horario)
+activate teleAlgo
+
+teleAlgo -> LlamadaNacional ** : conDuracionYHorario(duracion, horario)
+activate LlamadaNacional
+
+LlamadaNacional -> Tarifa ** : conMontoEnBaseAHorario(horario)
+activate Tarifa
+
+Tarifa -> Tarifa ++ #FFBBBB: horarioEstaEnHorarioHabil(horario)
+
+note left of Tarifa
+  Se determina si el horario es habil
+  De esto va a depender el monto
+end note
+
+return true / false
+
+note left of Tarifa
+  monto = horarioHabil ? 0.2 : 0.1
+end note
+
+Tarifa -> Tarifa ++ #FFBBBB : conMontoFijo(monto)
+return Tarifa
+
+return tarifa = Tarifa
+
+LlamadaNacional -> Llamada : duracion(duracion)
+activate Llamada
+LlamadaNacional -> Llamada : horario(horario)
+LlamadaNacional -> Llamada : tarifa(tarifa)
+return Llamada
+return llamada = Llamada
+
+note right of teleAlgo
+  Ahora se agrega esta llamada el registro de llamadas de la línea telefónica
+end note
+
+deactivate teleAlgo
+
+@enduml
