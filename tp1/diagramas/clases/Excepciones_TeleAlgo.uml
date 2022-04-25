@@ -1,0 +1,24 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+hide empty members
+
+class TeleAlgo {
+  - abonoMensual : float
+  - llamadas : Llamada
+  - tarifaInternacional : float
+
+  {static} + conAbonoMensual(abono : float)
+  - abonoMensual(unAbono : Float)
+  - aplicarTarifaPorMinutoALlamadaInternacional(tarifa : float)
+  - calcularGastoFinal() : float
+  - consultarPorLlamadaEfectuadaMasCostosa() : str
+  - registrarLlamadaNacional(duracion : int, horario : int)
+  - registrarLlamadaInternacional(duracion : int, horario : int, destino : str)
+}
+
+left to right direction
+TeleAlgo ..> AbonoMensualInvalido : Excepción
+TeleAlgo ..> SinLlamadasRegistradas : Excepción
+
+@enduml

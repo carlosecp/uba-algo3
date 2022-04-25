@@ -1,0 +1,42 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+hide empty members
+
+abstract Llamada {
+  # duracion: int
+  # horario: int
+  # tarifa : Tarifa
+
+  + costoTotal() : float
+  {abstract} + descripcion() : str
+  # duracion(unaDuracion : int)
+  # esDeLargaDuracion() : bool
+  # horario(horario : int)
+  # montoDescuento(montoBruto : float) : float
+  # tarifa(tarifa : float)
+}
+
+
+Llamada --|> LlamadaNacional
+Llamada --|> LlamadaInternacional
+
+class LlamadaNacional {
+  {static} + conDuracionYHorario(duracion : int, horario : int)
+  + descripcion() : str
+}
+
+class LlamadaInternacional {
+  - destino : str
+
+  {static} + conDuracionHorarioTarifaYDestino(\n\tduracion : int, \n\thorario : int, \n\ttarifa : float, \n\tdestino: str\n)
+  + descripcion() : str
+  - destino(destino : str)
+}
+
+Llamada .ri.> HorarioInvalido : Excepción
+Llamada .ri.> DuracionInvalida : Excepción
+
+LlamadaInternacional .do.> DestinoInvalido : Excepción
+
+@enduml

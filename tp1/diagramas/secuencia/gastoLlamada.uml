@@ -1,0 +1,49 @@
+@startuml
+
+actor Usuario
+participant ":TeleAlgo" as teleAlgo
+
+Usuario -> teleAlgo : calcularGastoFinal()
+activate teleAlgo
+
+participant ":Llamada" as llamada
+participant ":Tarifa" as tarifa
+
+loop Para cada llamada
+  note right
+    gastoFinal: acumulador de los gastos de cada llamada
+  end note
+
+  teleAlgo -> llamada : costoTotal()
+  activate llamada
+  
+  llamada -> tarifa : monto()
+  activate tarifa
+  tarifa --> llamada : monto
+  deactivate tarifa
+
+  note left
+    montoBruto = monto * duracion
+  end note
+
+  |||
+ 
+  llamada -> llamada ++ #FFBBBB: montoDescuento(montoBruto)
+  llamada -> llamada ++ #DarkSalmon: esDeLargaDuracion()
+
+  note left
+    duracion > 30 ? true : false
+  end note
+
+  return true / false
+  return montoDescuento
+
+  llamada --> teleAlgo : montoBruto - montoDescuento
+  deactivate llamada
+end
+
+teleAlgo --> Usuario : gastoFinal
+
+deactivate teleAlgo
+
+@enduml

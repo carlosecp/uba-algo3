@@ -1,0 +1,17 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+hide empty members
+
+class Tarifa {
+  - monto : float
+
+  {static} + conMontoEnBaseAHorario(horario : int)
+  {static} + conMontoFijo(monto : int)
+  - monto() : float
+  - monto(monto : float)
+}
+
+Tarifa .ri.> MontoTarifaInvalido : Excepción
+
+@enduml
