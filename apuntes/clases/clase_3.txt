@@ -13,7 +13,7 @@ FORMAS DE COLABORACION ENTRE OBJETOS:
 ---
 
 DELEGACION
-Como en este modelo el objeto cliente necesita de la respeusta del receptor
+Como en este modelo el objeto cliente necesita de la respuesta del receptor
 para su correcto funcionamiento, se establece una relacion de dependencia entre
 ambos.
 
