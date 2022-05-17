@@ -1,0 +1,107 @@
+The complexity of software is an essential property, not an accidental one. We
+observe that this inherent complexity derives from four elements:
+
+• The complexity of the problem domain
+
+These problems usually spring from the "communication gap" that exists between
+the users of a system and its developers. Users generally find it very hard to
+give precise expression to their needs in a form that developers can
+understand. This occurs because each group generally lacks expertise in the
+domain of the other.
+
+We cannot afford to scrap an existing system every time its requirements
+change. Planned or not, systems tend to evolve over time.
+
+•  The difficulty of managing the development process
+
+"The task of the software development team is to engineer the illusion of
+simplicity."
+
+We strive to write less code by inventing clever and powerful mechanisms that
+give us this illusion of simplicity, as well as by reusing frameworks of
+existing designs and code. However, the sheer volume of a system's requirements
+is sometimes inescapable and forces us either to write a large amount of new
+software or to reuse existing software in novel ways. 
+
+Having more developers means more complex communication and hence more
+difficult coordination. With a team of developers
+the key management challenge is always to maintain a unity and integrity of
+design.
+
+• The flexibility possible through software
+
+Software offers the ultimate flexibility, so it is possible for a developer to
+express almost any kind of abstraction. This flexibility turn out to be an
+incredibly seductive property, however, because it also forces the developer to
+craft virtually all the primitive building blocks on which these higher-level
+abstraction stand.
+
+• The problems of characterizing the behaviour of discrete systems
+
+When we say that a system is described by a continuous function, we are saying
+that it can contain no hidden surprises. Small changes in inputs will always
+cause correspondingly small changes in outputs. On the other hand, discrete
+systems by their very nature have a finite number of possible states.
+
+** We try to design our systems with a separation of concerns, so that the
+behaviour in one part of a system has minimal impact on the behaviour in
+another. **
+
+Each event external to a software system has the potential of placing that
+system in a new state. Since we have neither the mathematical tools nor the
+intellectual capacity to model the complete behaviour of large discrete
+systems, we must be content with acceptable levels of confidence regarding
+their correctness.
+
+                *** The five attributes of a complex system ***
+
+
+• Hierarchic structure
+
+The fact that many complex systems have a nearly decomposable, hierarchic
+structure is a major facilitating factor enabling us to understand, describe,
+and even "see" such systems and their parts.
+
+"It's important to realize that the architecture of a complex system is a
+function of its components as well as the hierarchic relationships among these
+components. All system have subsystems and all systems are part of larger
+systems. The value added by a system must come from the relationships between
+the parts, not from the parts per se."
+
+• Relative primitives
+
+The choice of what components in a system are primitive is relatively arbitrary
+and is largely up to the discretion of the observer of the system.
+
+• Separation of concerns
+
+Intracomponent linkages are generally stronger than intercomponent linkages.
+This fact hast the effect of separating the high-frequency dynamics of the
+components (involving the internal structure of the components), from the low
+frequency dynamics (involving interaction among components).
+
+The difference between intra and intercomponent interactions provides a clear
+separation of concerns among the various parts of a system, making it possible
+to study each part in relative isolation.
+
+• Common patterns
+
+Hierarchic systems are usually composed of only a few different kinds of
+subsystems in various combinations and arrangements. Por ejemplo, el caso de la
+anatomia de diferentes animales, podemos distinguir que todos tienen diferentes
+sistemas como el sistema digestivo o el nervioso, pero en esencia todos los
+sistemas son solo colecciones de diferentes organos.
+
+• Stable intermediate forms
+
+A complex system that works in invariably found to have evolved from a simple
+system that worked. A complex system designed from scratch never works. You
+have to start over, beginning with a working simple system.
+
+"As system evolve, objects that were once considered complex become the
+primitive objects on which more complex systems are built."
+
+                *** The five attributes of a complex system ***
+
+
+
