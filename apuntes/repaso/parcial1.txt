@@ -1,5 +1,6 @@
-The complexity of software is an essential property, not an accidental one. We
-observe that this inherent complexity derives from four elements:
+source: https://zjnu2017.github.io/OOAD/reading/Object.Oriented.Analysis.and.Design.with.Applications.3rd.Edition.by.Booch.pdf
+
+                  *** Where software complexity comes from ***
 
 • The complexity of the problem domain
 
@@ -55,7 +56,6 @@ their correctness.
 
                 *** The five attributes of a complex system ***
 
-
 • Hierarchic structure
 
 The fact that many complex systems have a nearly decomposable, hierarchic
@@ -103,5 +103,33 @@ primitive objects on which more complex systems are built."
 
                 *** The five attributes of a complex system ***
 
+Hay diferentes formas de descomponer un problema segun jerarquia. Podemos
+descomponer un sistema en base a su estructura, por ejemplo, en el caso de un
+avion, podemos descomponer un avion en los diferentes sistemas que lo componen,
+por ejemplo el sistema de propulsion o el sistema de control de vuelo. A este
+tipo de descomposicion se le conoce como "part of". Otro tipo de descomposicion
+es el tipo "is a", en el que se identifican las variantes de un mismo concepto.
+El autor conoce a estas formas de categorizacion como "class structure" y
+"object structure" respectivamente.
 
+NOTA: Con los terminos clase y objeto el autor no se esta refiriendo a las
+clases y objetos a las que estamos acostumbrado en el codigo. Esta hablando de
+clases y objetos en un nivel de abstraccion mas alto.
 
+Class structure -> Forma de los componenetes independientes.
+Object structure -> Forma en la que diferentes componentes se relacionan.
+
+                        *** Bringing order to chaos ***
+
+We must consider disciplined ways to master complexity instead of relying only
+on divine inspiration.
+
+"Rather than decomposing the problem into steps, we identify entities which
+derive from the vocabulary of the problem domain."
+
+                                 *** Resumen ***
+
+• Podemos descomponer un sistema complejo en base a las preguntas "es un" y "es
+parte de". Esto en combinacion con las 5 cualidades principales de los sistemas
+complejos permite identificar una forma canonica de ver estos sistemas, que
+vendria siendo una arquitectura del sistema.
