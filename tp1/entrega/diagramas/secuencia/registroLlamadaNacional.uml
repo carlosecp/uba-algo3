@@ -1,49 +1,50 @@
 @startuml
 
-title Calculo Gasto Total
+title Registro Llamada Nacional
 
 actor Usuario
 participant ":TeleAlgo" as teleAlgo
-participant ":Llamada" as llamada
-participant ":Tarifa" as tarifa
+participant LlamadaNacional
+participant Tarifa
+participant Llamada
 
-Usuario -> teleAlgo : calcularGastoFinal()
+Usuario -> teleAlgo : registrarLlamadaNacional(duracion, horario)
 activate teleAlgo
 
-loop Para cada llamada
-  teleAlgo -> llamada : costoTotal()
-  activate llamada
-  
-  llamada -> tarifa : monto()
-  activate tarifa
+teleAlgo -> LlamadaNacional ** : conDuracionYHorario(duracion, horario)
+activate LlamadaNacional
 
-  tarifa --> llamada : monto
-  deactivate tarifa
+LlamadaNacional -> Tarifa ** : conMontoEnBaseAHorario(horario)
+activate Tarifa
 
-  note left of llamada
-    montoBruto = monto * duracion
-  end note
+Tarifa -> Tarifa ++ #FFBBBB: horarioEstaEnHorarioHabil(horario)
 
-  llamada -> llamada ++ #FFBBBB: montoDescuento(montoBruto)
-  llamada -> llamada ++ #DarkSalmon: esDeLargaDuracion()
+note left of Tarifa
+  Se determina si el horario es habil
+  De esto va a depender el monto
+end note
 
-  note left of llamada
-    duracion > 30 ? true : false
-  end note
+return true / false
 
-  return true / false
+note left of Tarifa
+  monto = horarioHabil ? 0.2 : 0.1
+end note
 
-  note right of llamada
-   Si la llamada es de larga duracion tiene descuento
-  end note
+Tarifa -> Tarifa ++ #FFBBBB : conMontoFijo(monto)
+return Tarifa
 
-  return montoDescuento
+return tarifa = Tarifa
 
-  llamada --> teleAlgo : gastoFinal += montoBruto - montoDescuento
-  deactivate llamada
-end
+LlamadaNacional -> Llamada : duracion(duracion)
+activate Llamada
+LlamadaNacional -> Llamada : horario(horario)
+LlamadaNacional -> Llamada : tarifa(tarifa)
+return Llamada
+return llamada = Llamada
 
-teleAlgo --> Usuario : gastoFinal
+note right of teleAlgo
+  Ahora se agrega esta llamada el registro de llamadas de la línea telefónica
+end note
 
 deactivate teleAlgo
 

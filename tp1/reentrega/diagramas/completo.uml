@@ -22,13 +22,9 @@ abstract Llamada {
   # duracion: int
 	# porcentajeDescuentoLargaDuracion: float
 
-  # calcularMontoDescuento(montoBruto: float): float
-  # calcularPorcentajeDescuento(): float
   + costoTotal(): float
   {abstract} + descripcion(): str
-  # duracion(unaDuracion: int)
-  # esDeLargaDuracion(): bool
-  # horario(horario: int)
+  # tarifa(tarifa: Tarifa)
 }
 
 Llamada <|-- LlamadaNacional
@@ -42,21 +38,36 @@ class LlamadaNacional {
 class LlamadaInternacional {
   - destino: str
 
-  {static} + conDuracionHorarioTarifaYDestino(duracion: int, horario: int, tarifa: float, destino: str)
+  {static} + conDuracionHorarioTarifaInternacionalYDestino(duracion: int, horario: int, tarifaInternacional: float, destino: str)
   + descripcion(): str
   - destino(destino: str)
 }
 
-Llamada "1" *-ri- "1" HorarioLlamada
+Llamada "1" *-ri- "1" Tarifa
 
-class HorarioLlamada {
-  {static} + conTarifaFijaConHorario(tarifa: float, horario: int)
-  {static} + conTarifaHabilONoHabil(horario: int)
-  {static} + tarifaSegunHorario(horario: int)
+class Tarifa {
+	# duracion: int
+
+	{static} + conDuracionYHorario(duracion: int, horario: Horario)
+	- calcularDescuentoDeMontoBruto(montoBruto: float): float
+	- calcularMontoBruto(): float
+	+ calcularMontoNeto(): float
+	- duracion(): str
+	- duracion(duracion: int)
+	- esDeLargaDuracion(): bool
+	+ horario(): str
+	- horario(horario: Horario)
+}
+
+Tarifa "1" *-ri- "1" Horario
+
+class Horario {
+  {static} + conMontoEnBaseAHorario(horario: int)
+  {static} + conMontoFijoYHorario(montoFijo: float, horario: int)
 	+ asString(): str
-	+ calcularTarifaConDuracion(duracion: int): float
   - horario(horario: int): float
-  - tarifa(tarifa: float)
+  + monto(): float
+  - monto(tarifa: float)
 }
 
 @enduml

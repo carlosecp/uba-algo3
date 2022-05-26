@@ -1,49 +1,33 @@
 @startuml
 
-title Calculo Gasto Total
+title Registro Llamada Nacional
 
 actor Usuario
 participant ":TeleAlgo" as teleAlgo
-participant ":Llamada" as llamada
-participant ":Tarifa" as tarifa
+participant ":__LlamadaNacional__" as llamada
+participant ":__Horario__" as horario
+participant ":__Tarifa__" as tarifa
 
-Usuario -> teleAlgo : calcularGastoFinal()
+Usuario -> teleAlgo : registrarLlamadaNacional(duracion, horario)
 activate teleAlgo
 
-loop Para cada llamada
-  teleAlgo -> llamada : costoTotal()
-  activate llamada
-  
-  llamada -> tarifa : monto()
-  activate tarifa
+teleAlgo -> llamada ** : conDuracionYHorario(duracion, horario)
+activate llamada
 
-  tarifa --> llamada : monto
-  deactivate tarifa
+llamada -> horario ** : conMontoEnBaseAHorario(horario)
+horario --> llamada : horario
 
-  note left of llamada
-    montoBruto = monto * duracion
-  end note
+llamada -> tarifa ** : conDuracionYHorario(duracion, horario)
+tarifa --> llamada : tarifa
 
-  llamada -> llamada ++ #FFBBBB: montoDescuento(montoBruto)
-  llamada -> llamada ++ #DarkSalmon: esDeLargaDuracion()
+llamada -> llamada ++ #FFBBBB: tarifa(tarifa)
+deactivate llamada
 
-  note left of llamada
-    duracion > 30 ? true : false
-  end note
+return nuevaLlamada
 
-  return true / false
-
-  note right of llamada
-   Si la llamada es de larga duracion tiene descuento
-  end note
-
-  return montoDescuento
-
-  llamada --> teleAlgo : gastoFinal += montoBruto - montoDescuento
-  deactivate llamada
-end
-
-teleAlgo --> Usuario : gastoFinal
+note right of teleAlgo
+  Ahora se agrega esta llamada el registro de llamadas de la línea telefónica
+end note
 
 deactivate teleAlgo
 

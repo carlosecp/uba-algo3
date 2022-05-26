@@ -4,8 +4,9 @@ title Calculo Gasto Total
 
 actor Usuario
 participant "__:TeleAlgo__" as teleAlgo
-participant "__:Llamada__" as llamada
-participant "__:HorarioLlamada__" as horario
+participant "Llamada" as llamada
+participant "__:Tarifa__" as tarifa
+participant "__:Horario__" as horario
 
 Usuario -> teleAlgo: calcularGastoFinal()
 activate teleAlgo
@@ -14,34 +15,33 @@ loop Para cada llamada
   teleAlgo -> llamada : costoTotal()
   activate llamada
   
-  llamada -> horario : calcularTarifaConDuracion()
-  activate horario
+  llamada -> tarifa : calcularMontoNeto()
+  activate tarifa
 
-  note right of horario
-    montoBruto = tarifa * duracion
+  tarifa -> tarifa ++ #FFBBBB: calcularMontoBruto()
+
+	tarifa -> horario : monto()
+	activate horario
+
+  note left of tarifa
+  	montoBruto = monto * duracion
   end note
 
-  llamada <-- horario : montoBruto
-  deactivate horario
+	return monto
+	return montoBruto
 
-  llamada -> llamada ++ #FFBBBB: calcularMontoDescuento(montoBruto)
-  llamada -> llamada ++ #DarkSalmon: calcularPorcentajeDescuento()
-  llamada -> llamada ++ #87CEEB: esDeLargaDuracion()
+  tarifa -> tarifa ++ #FFBBBB: calcularDescuentoDeMontoBruto(montoBruto)
+  tarifa -> tarifa ++ #DarkSalmon: esDeLargaDuracion()
 
-  note left of llamada
+  note left of tarifa
     duracion > 30 ? true: false
   end note
 
-  return true / false
+	return true/false
+	return descuentoDeMontoBruto
 
-  note right of llamada
-   Si la llamada es de larga duracion tiene descuento
-  end note
-
-  return montoDescuento
-
-  llamada --> teleAlgo: gastoFinal += montoBruto - montoDescuento
-  deactivate llamada
+	return montoNeto = montoBruto - descuentoDeMontoBruto
+	return montoNeto
 end
 
 teleAlgo --> Usuario: gastoFinal

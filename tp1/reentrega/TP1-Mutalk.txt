@@ -1,7 +1,6 @@
 | testSuit analysis alive browser |
 testSuit := {
 	TeleAlgoTest .
-	LlamadaTest .
 	LlamadaNacionalTest .
 	LlamadaInternacionalTest .
 	HorarioTest .
@@ -30,4 +29,5 @@ browser transmit to: #results.
 browser transmit to: #diff; from: #results; andShow: [ :a | 
 	a diff display: [ :mutant | {((RBParser parseMethod: (mutant mutant originalSource)) formattedCode) . ((RBParser parseMethod: (mutant mutant modifiedSource)) formattedCode)}] ].
 browser openOn: alive.
+
 
