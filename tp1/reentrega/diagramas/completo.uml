@@ -20,6 +20,7 @@ TeleAlgo "1" *-- "*" Llamada
 
 abstract Llamada {
   # duracion: int
+	# porcentajeDescuentoLargaDuracion: float
 
   # calcularMontoDescuento(montoBruto: float): float
   # calcularPorcentajeDescuento(): float
@@ -46,9 +47,9 @@ class LlamadaInternacional {
   - destino(destino: str)
 }
 
-Llamada "1" *-ri- "1" Horario
+Llamada "1" *-ri- "1" HorarioLlamada
 
-class Horario {
+class HorarioLlamada {
   {static} + conTarifaFijaConHorario(tarifa: float, horario: int)
   {static} + conTarifaHabilONoHabil(horario: int)
   {static} + tarifaSegunHorario(horario: int)

@@ -4,14 +4,14 @@ testSuit := {
 	LlamadaTest .
 	LlamadaNacionalTest .
 	LlamadaInternacionalTest .
-	HorarioLlamadaTest .
+	HorarioTest .
 }.
 classesToMutate := {
 	TeleAlgo .
 	Llamada .
 	LlamadaNacional .
 	LlamadaInternacional .
-	HorarioLlamada .
+	Horario .
 }.
 analysis := MutationTestingAnalysis
     testCasesFrom: testSuit
@@ -30,3 +30,4 @@ browser transmit to: #results.
 browser transmit to: #diff; from: #results; andShow: [ :a | 
 	a diff display: [ :mutant | {((RBParser parseMethod: (mutant mutant originalSource)) formattedCode) . ((RBParser parseMethod: (mutant mutant modifiedSource)) formattedCode)}] ].
 browser openOn: alive.
+
