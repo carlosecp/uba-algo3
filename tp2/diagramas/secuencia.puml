@@ -1,0 +1,8 @@
+@startuml
+"Juego" -> "__:Moto__" : mover(mapa, direccion)
+"__:Moto__" -> "__:Moto__" : puedeMoverseEnDireccion(mapa, direccion)
+' Aca habria que ver como hacemos para calcular la posicion
+"__:Moto__" -> "__:Mapa__" : posicionEstaDentroDeLimites(posicion)
+return true
+"__:Moto__" -> "__:Moto__" : actualizarPosicion(posicion)
+@enduml

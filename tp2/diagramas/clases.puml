@@ -1,0 +1,30 @@
+@startuml
+abstract class Vehiculo {
+	+ movimientos : int
+}
+
+class Moto {
+}
+class Auto {
+}
+class CuatroXCuatro {
+}
+
+Moto --|> Vehiculo
+Auto --|> Vehiculo
+CuatroXCuatro --|> Vehiculo
+
+abstract class Obstaculo {
+}
+
+class Pozo {
+}
+class Piquete {
+}
+class ControlPolicial {
+}
+
+Pozo --|> Obstaculo
+Piquete --|> Obstaculo
+ControlPolicial --|> Obstaculo
+@enduml
