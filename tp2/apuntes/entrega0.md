@@ -1,4 +1,4 @@
-# Algoritmos y Programacion 3 - TP2 1C 2022
+# Entrega 0
 
 ## Enunciado
 
